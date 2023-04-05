@@ -1,0 +1,124 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyML4B3VwuHSn8xK/EOCNOWs",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/EmilianoCastelan/MetodosNumericos/blob/main/Punto%20fijo\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from math import *\n",
+        "import numpy as np\n",
+        "import matplotlib . pyplot as plt"
+      ],
+      "metadata": {
+        "id": "Z4r8d5LmBIHQ"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def fn1(x):\n",
+        "    return 2**(-x)\n",
+        "def gn(x):\n",
+        "    return 2**(-x)\n",
+        "# Para poder guardar valores iniciales usamos\n",
+        "i=0\n",
+        "p=0\n",
+        "pi=1\n",
+        "#Se le pide al usuario que introduzca el valor de la tolerancia y el n. mayor de iteraciones \n",
+        "tol = float(input(\"Ingrese el valor de la tolerancia: \"))\n",
+        "nmax = (input(\"Ingrese el número máximo de iteraciones: \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Be9fo9jMBNB_",
+        "outputId": "a404fa26-ac55-492c-b178-a226b4a23e30"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese el valor de la tolerancia: 0.0001\n",
+            "Ingrese el número máximo de iteraciones: 100\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GrxvfwXOAle5",
+        "outputId": "bed9a6c6-fae8-4c0d-e036-ccda5679047e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "# iter\t\t x_n \t\t g(x_n) \t f(x_n)\n",
+            "0 \t\t 1.000000 \t 0.500000 \t 0.707107 \n",
+            "1 \t\t 0.500000 \t 0.707107 \t 0.612547 \n",
+            "2 \t\t 0.707107 \t 0.612547 \t 0.654041 \n",
+            "3 \t\t 0.612547 \t 0.654041 \t 0.635498 \n",
+            "4 \t\t 0.654041 \t 0.635498 \t 0.643719 \n",
+            "5 \t\t 0.635498 \t 0.643719 \t 0.640061 \n",
+            "6 \t\t 0.643719 \t 0.640061 \t 0.641686 \n",
+            "7 \t\t 0.640061 \t 0.641686 \t 0.640964 \n",
+            "8 \t\t 0.641686 \t 0.640964 \t 0.641285 \n",
+            "9 \t\t 0.640964 \t 0.641285 \t 0.641142 \n",
+            "10 \t\t 0.641285 \t 0.641142 \t 0.641205 \n",
+            "11 \t\t 0.641142 \t 0.641205 \t 0.641177 \n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "print(\"# iter\\t\\t x_n \\t\\t g(x_n) \\t f(x_n)\")\n",
+        "\n",
+        "#Método del punto fijo y ciclo\n",
+        "while 17 > i :\n",
+        "  p=gn(pi)\n",
+        "  print(\"{0} \\t\\t {1:6.6f} \\t {2:6.6f} \\t {3:6.6f} \".format(i, pi,p ,fn1(p) ))\n",
+        "\n",
+        "  if abs(p-pi) < tol:\n",
+        "      break\n",
+        "  pi=p\n",
+        "  i += 1\n",
+        "  "
+      ]
+    }
+  ]
+}
