@@ -1,1 +1,164 @@
------
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\newtheorem{teo}{}
+
+\title{Formulario Métodos Numéricos}
+\author{Emiliano Castelán Perez}
+
+\begin{document}
+\maketitle
+
+\section{Teorema}
+    \begin{teo}
+    Sea
+\begin{equation} 
+ f:x \longrightarrow R , x_{0} \in X.
+\end{equation}
+Los siguientes enunciados son equivalentes \newline
+a. f es continua en x$_{0}$ \newline
+b. Si X$_{n}$ $^\infty$ $_{n>1}$ es una sucesión en x y converge en x$_{0}$, entonces lim $_{n\longrightarrow \infty}$ f(x)=f(x$_{0}$)
+    \end{teo}
+
+\section{Definición}
+    \begin{teo}
+        Si f es una función definida en un intervalo abierto que contiene a x$_{0}$, entonces, f sera diferenciable en x$_{0}$ si:
+        \begin{equation} 
+        f'(x)= lim _{n\longrightarrow \infty} \frac{f(x)-f(x_{0})}{x-x_{0}}
+        \end{equation}
+    \end{teo}
+
+\section{Teorema}
+    \begin{teo}
+        Si f es diferenciable en x$_{0}$, entonces f es continua en x$_{0}$
+    \end{teo}
+
+\section{Teorema de Rolle}
+    \begin{teo}
+        Supongamos que f$\in$ C[a,b] y que es diferenciable en (a,b). Si f(a)=f(b), entonces existirá un número c en (a,b) con f'(c)=0
+        Nota: Este teorema tiene la utilidad de asegurarnos que existen tales puntos criticos, sin embargo, no nos dice cuales son
+    \end{teo}
+
+\section{Teorema del valor medio}
+    \begin{teo}
+        Si f$\in$ C[a,b] y f es diferenciable en (a,b). entoces existirá un número c en (a,b) tal que:
+        \begin{equation} 
+         f'(c)= \frac{f(b)-f(a)}{b-a}
+        \end{equation}
+    \end{teo}
+
+\section{Teorema generalizado de Rolle}
+    \begin{teo}
+        Supongamos que f$\in$ C[a,b] es n veces diferenciable en (a,b). Si f(x) es cero en n+1 puntos distintos $x_0, x_1, \ldots, x_n$ en [a,b], entonces existirá un número c en (a,b) con:
+            \begin{equation} 
+            f^{(n)} (c)=0
+            \end{equation}
+    \end{teo}
+
+\section{Teorema del valor intermedio}
+    \begin{teo}
+        Si f$\in$ C[a,b] y k es un número cualquiera entre f(a) y f(b) existirá un número c en (a,b) para el cual f(c)=k
+    \end{teo}
+
+\section{Teorema de Taylor}
+    \begin{teo}
+        Supongamos que f$\in$ C[a,b] que f$^{(n+1)}$ existe en [a,b] y que x$_{0}$$\in$ [a,b]. Para toda x$\in$ [a,b] habrá un número $\xi$(x) entre x$_{0}$ y x tal que:
+            \begin{equation} 
+            f(x)=P_{n}(x)+R_{n}(x) 
+            \end{equation}
+            donde
+             \begin{equation} 
+            P_{n}=f(x_{0})+f'(x_{0})(x-x_{0})+\frac{f''(x_{0}}{2!}(x-x_{0})+...+\frac{f^{n}(x_{0}}{n!}(x-x_{0})
+            \end{equation}
+            Por lo tanto:
+            \begin{equation} 
+            P_{n}=\sum_{k=0}^{n}(x_{0})(x-x_{0})^k
+            \end{equation}  
+            Además 
+            \begin{equation} 
+            R_{n}(x)=\frac{f^{n+1}}{k!}(\xi_{x})(x-x_{0})^{n+1}
+            \end{equation}        
+    \end{teo}
+\section{Definición}
+    \begin{teo}
+        La integral de Riemann de la función f en el intervalo [a,b] es:
+            \begin{equation} 
+            \int_{a}^{b}\!f(x)\,dx= lim_{min\triangle x_{i}\longrightarrow 0 }\sum_{i=0}^{n}f(z_{i})\triangle x_{i}
+            \end{equation}  
+            Donde a=x$_{0}$ $\leq$ x$_{i}$ $\leq$ ...$\leq$ x$_{n}$ y $\triangle$ x$_{i}$=x$_{i}$-x$_{i-1}$ y z$_{i}$ $\in$[x$_{i-1}$, x$_{i}$] para i=1,2,...,n \newline
+            Si la x$_{i}$ estan igualmente espaciados, entonces:
+            \begin{equation} 
+            \int_{a}^{b}\!f(x)\,dx= lim_{n\longrightarrow \infty }\frac{b-a}{n}\sum_{i=0}^{n}f(x_{i})
+            \end{equation}      
+    \end{teo}
+    
+\section{Teorema del Valor Medio ponderado para integrales}
+    \begin{teo}
+        Si f$\in$ C[a,b], la integral de g existe en [a,b] y g(x) no cambia de signo en [a,b], entonces existira c$\in$ (a,b) con:
+        \begin{equation} 
+            \int_{a}^{b}\!f(x)g(x)\,dx= f(c)\int_{a}^{b}\!g(x)\,dx
+        \end{equation}
+        Si g(x)=1, entonces:
+        \begin{equation} 
+            f(c)=\frac{1^{a}}{b-a}\int_{a}^{b}\!f(x)\,dx
+        \end{equation}
+    \end{teo}
+\section{Tipos de errores}
+    \begin{teo}
+        Sea X$_{a}$ el valor aproximado de X$-{T}$, entonces se define: \newline
+        $\bullet$ Error absoluto=
+        \begin{equation} 
+            e_{a}=|X_{T}-X_{a}|
+        \end{equation}
+        $\bullet$ Error relativo=
+        \begin{equation} 
+            e_{r}=\frac{|X_{T}-X_{a}|}{|X_{T}|}
+        \end{equation}
+         $\bullet$ Error porcentual=
+        \begin{equation} 
+            e_{p}=\frac{|X_{T}-X_{a}|}{|X_{T}|}(100)
+        \end{equation}
+    \end{teo}
+
+\section{Conceptos básicos y definiciones}
+    \begin{teo}
+        Sea {X$_{n}$} una secuencia sucesiva de aproximación a la raíz $\alpha$ de la ecuacion f(x)=0 \newline
+        El erro en $\epsilon$ $_{n}$ de la n-esima iteración está definida por:
+          \begin{equation} 
+            \epsilon _{n}=\alpha-X_{n} 
+        \end{equation}
+        Definimos: \newline
+        \begin{equation} 
+            h_{n}=X_{n-1}-X_{n}= \epsilon _{n}- \epsilon _{n+1}
+        \end{equation}
+        Como una aproximación de $\epsilon$$_{n}$ \newline
+        El proceso de iteración solo converge si y solo si:
+        \begin{equation} 
+            \epsilon _{n} \longrightarrow 0, cuando, n \longrightarrow \infty
+        \end{equation}
+    \end{teo}
+
+\section{Orden de convergencia}
+    \begin{teo}
+        Definición: \newline
+        Si un método converge y existen dos constantes 1 $\leq$ P y 0 $\leq$ C tal que:
+        \begin{equation} 
+            lim_{n \longrightarrow \infty} \frac{|\epsilon _{n+1}|}{|\epsilon _{n}^{P}|}=C
+        \end{equation}
+        Entonces P se llama orden de convergencia del método y C es la constante de error asintótico
+    \end{teo}
+
+\section{Teorema}
+    \begin{teo}
+        Si g$\in$C[a,b] y g(x)$\in$[a,b], $\forall$ x$\in$[a,b], entonces g tiene un punto fijo en [a,b]
+    \end{teo}
+
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}
