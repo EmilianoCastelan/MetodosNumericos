@@ -157,8 +157,309 @@ b. Si X$_{n}$ $^\infty$ $_{n>1}$ es una sucesión en x y converge en x$_{0}$, en
         Si g$\in$C[a,b] y g(x)$\in$[a,b], $\forall$ x$\in$[a,b], entonces g tiene un punto fijo en [a,b]
     \end{teo}
 
+\section{Metodo de Newton-Raphson}
+    \begin{teo}
+        Supongamos que f$\in$C $^{2}$[a,b]. Sea $\Bar{x}$$\in$C $^{2}$ [a,b] una aproximación de p tal que f'( $\Bar{x}$)$\neq$0 y $|$$\Bar{x}$-p$|$ es "pequeño", consideramos:
+            \begin{equation}
+                f(x)=f(\Bar{x})+(x-\Bar{x})f'(x)+\frac{(x-\Bar{x}^2)}{2}f''(\xi(x))
+            \end{equation}
+        Dado que f(p)=0, haciendo x=p:
+            \begin{equation}
+                0=f(\Bar{x})+(p-\Bar{x})f'(\Bar{x})+\frac{(p-\Bar{x}^2)}{2}f''(\xi(x))
+            \end{equation}
+        Si (p-$\Bar{x}$)$^{2}$ es mucho menor, luego:
+            \begin{equation}
+                0\approx f(\Bar{x})+(p-\Bar{x}f'(\Bar{x})
+            \end{equation}
+        Por lo tanto p$\approx$$\Bar{x}$-$\frac{f(\Bar{x})}{f'(\Bar{x})}$
+    \end{teo}
 
-\bibliographystyle{alpha}
+\section{Teorema del residuo}
+    \begin{teo}
+            \begin{equation}
+                P(x)=(x-\Bar{x})Q(x)+P(x)
+            \end{equation}
+        S x=x$_{0}$ es una raíz, entonces P(x$_{0}$) es el residuo      
+    \end{teo}
+
+\section{Método de Horner}
+    \begin{teo}
+        Sea P(x)=a$_{n}$x$^{n}$+a$_{n-1}$x$^{n-1}$+...+a$_{1}$x+a$_{0}$ \newline
+        Si b$_{n}$=a$_{n}$ y b$_{k}$=a$_{k}$+b$_{k+1}$x$_{0}$ para k=n-1,n-2,...,1,0 por lo tanto, b$_{0}$=P(x$_{0}$). Más aún, si Q(x)=b$_{n}$x$^{n-1}$+b$_{n-1}$x$^{n-2}$+...+b$_{2}$x+b$_{1}$ \newline
+        Entonces P(x)=(x-x$_{0}$)Q(x)+b$_{0}$ \newline
+        De la ecuación P(x)=(x-x$_{0}$)Q(x)+b$_{0}$ donde Q(x)=b$_{n}$x$^{n-1}$+b$_{n-1}$x$^{n-2}$+...+b$_{2}$x+b$_{1}$, al derivar tenemos:
+            \begin{equation}
+                P'(x)=(x-x_{0})Q'(x)+Q(x)
+            \end{equation}
+        Por lo tanto P'(x$_{0}$)=Q(x$_{0}$)
+        
+    \end{teo}
+\section{Teorema fundamental del algebra}
+    \begin{teo}
+        Si P(x)es un polinomio de grado n$\geq$1, entonces P(x)=0 tiene al menos una raiz (posiblemente compleja)
+    \end{teo}
+\section{Método de Muller}
+    \begin{teo}
+        Para derivar el metodo de Müller planteamos:
+            \begin{equation}
+                f(x)=a(x-x_{2})^{2}+b(x-x_{2})+c
+            \end{equation}
+        Que pasa por $(x_{0},P(x_{0}))$, $(x_{1},P(x_{1}))$, $(x_{2},P(x_{2}))$ y determinamos las constantes a,b,c entonces:
+            \begin{equation}
+                f(x_{0})=a(x_{0}-x_{2})^{2}+b(x_{0}-x_{2})+c 
+            \end{equation}
+            \begin{equation}
+                 f(x_{1})=a(x_{1}-x_{2})^{2}+b(x_{1}-x_{2})+c
+            \end{equation}
+            \begin{equation}
+                 f(x_{2})=a(x_{2}-x_{2})^{2}+b(x_{2}-x_{2})+c=a(0)^{2}+b(0)+c=c
+            \end{equation}
+        Aplicando la regla de Cramer tenemos que:
+            \begin{equation}
+                x=\frac{(f(x_{0})-f(x_{2}))(x_{1}-x_{2})-(f(x_{1})-f(x_{2}))(x_{0}-x_{2})}{(x_{0}-x_{2})(x_{1}-x_{2})(x_{0}-x_{1})}=a
+            \end{equation}
+            \begin{equation}
+                y=\frac{(f(x_{1})-f(x_{2}))(x_{0}-x_{2})^{2}-(f(x_{0})-f(x_{2}))(x_{1}-x_{2})^{2}}{(x_{0}-x_{2})(x_{1}-x_{2})(x_{0}-x_{1})}=b
+            \end{equation}
+    \end{teo}
+\section{Interpolación}
+    \begin{teo}
+        La base de la interpolación son dos teoremas probados por Wierstrass en 1885 \newline
+        1. Una función continua f(x) en [a,b] puede ser aproximada con cualquier grado de aproximación deseada por un polinomio p(x); entonces existe p(x) tal que $|f(x)-p(x)|<\epsilon$ \newline
+        2. Cualquier función f(x) de periódo $2\pi$ puede ser aproximada a cualquier grado de aproximación deseado, por una serie trigonométrica T(x) de la forma
+            \begin{equation}
+                T(x)=a_{0}+a_{1}sen(x)+a_{2}sen(2x)+...+a_{n}sen(nx)+b_{1}cos(x)+b_{2}cos(2x)+...+b_{n}cos(nx)
+            \end{equation}
+    \end{teo}
+\section{Diferencias de n-esimo orden}
+    \begin{teo}
+        Dado el conjunto de puntos $(x_{0},y_{0})$ \newline
+        $(x_{1},y_{1}),...,(x_{n},y_{n})$ determinados por la función y=f(x) tal que:
+            \begin{equation}
+                x_{1}-x_{0}=x_{2}-x_{1}=...=x_{n}-x_{n-1}=h
+            \end{equation}
+        Entonces definimos 
+            \begin{equation}
+                y_{1}-y_{0},y_{2}-y_{1},...,y_{n}-y_{n-1}
+            \end{equation}
+        Como las primeras diferencias \newline
+        Usaremos la notación con el operador $\bigtriangleup$, entonces:\newline
+        $\bigtriangleup y_{0}=y_{1}-y_{0}$ \newline
+        $\bigtriangleup y_{1}=y_{2}-y_{1}$ \newline
+        .\newline
+        .\newline
+        .\newline
+        $\bigtriangleup y_{n-1}=y_{n}-y_{n-1}$ \newline \newline
+        Para las segundas diferencias tenemos: \newline
+        $\bigtriangleup^{2} y_{0}=\bigtriangleup y_{1}-\bigtriangleup y_{0}$ \newline
+        $\bigtriangleup^{2} y_{1}=\bigtriangleup y_{2}-\bigtriangleup y_{1}$ \newline
+        .\newline
+        .\newline
+        .\newline
+        $\bigtriangleup^{2} y_{n-2}=\bigtriangleup y_{n-1}-\bigtriangleup y_{n}$ \newline
+        En general, las diferencias de n-esimo orden son:
+            \begin{equation}
+                \bigtriangleup^{n}y_{i}=\bigtriangleup^{n-1}y_{i+1}-\bigtriangleup^{n-1}y_{i}
+            \end{equation}
+    \end{teo}
+\section{Polinomio de Newton con espaciamientos constantes}
+    \begin{teo}
+    Tenemos que la primera diferencia para i=0 es:
+        \begin{equation}
+            \bigtriangleup y_{0}=y_{1}-y_{0}\Longrightarrow y_{1}=y_{0}+\bigtriangleup y_{0}---(1)
+        \end{equation}
+    Para i=1 tenemos:
+        \begin{equation}
+            \bigtriangleup y_{1}=y_{2}-y_{1}\Longrightarrow y_{2}=y_{1}+\bigtriangleup y_{1}---(2)
+        \end{equation}
+    Ahora, para las segundas diferencias con i=0 tenemos:
+        \begin{equation}
+            \bigtriangleup^{2} y_{0}=\bigtriangleup y_{1}-\bigtriangleup y_{0} \Longrightarrow \bigtriangleup y_{1}=\bigtriangleup y_{0}+\bigtriangleup^{2}y_{0}---(3)
+        \end{equation}
+    Sustituimos (1) y (3) en (2), $\Longrightarrow$
+        \begin{equation}
+            y_{2}=y_{0}+\bigtriangleup y_{0}+\bigtriangleup y_{0}+\bigtriangleup^{2}y_{0}
+        \end{equation}
+        \begin{equation}
+            \Longrightarrow y_{2}=\bigtriangleup^{2}y_{0}+2\bigtriangleup y_{0}+y_{0}
+        \end{equation}
+    De manera analoga, las terceras diferencias son:
+        \begin{equation}
+            \bigtriangleup^{3}y_{0}=\bigtriangleup^{2}y_{1}-\bigtriangleup^{2}y_{0}
+        \end{equation}
+    Se sigue que:
+        \begin{equation}
+            y_{3}=y_{0}+3\bigtriangleup^{2} y_{0}+\bigtriangleup^{3}y_{0}
+        \end{equation}
+    En general:
+        \begin{equation}
+            y_{k}=(1+\bigtriangleup)^{k}y_{0},\hspace{0.2cm}k=1,2,...,n
+        \end{equation}
+    O bien:
+        \begin{equation}
+            y_{k}=y_{0}+\begin{pmatrix}
+                k\\
+                1
+                \end{pmatrix} \bigtriangleup y_{0}+\begin{pmatrix}
+                k\\
+                2
+                \end{pmatrix}\bigtriangleup^{2}y_{0}+...+\begin{pmatrix}
+                k\\
+                k
+                \end{pmatrix} \bigtriangleup^{k}y_{0},\hspace{0.2cm} k=1,2,...,n
+        \end{equation}
+    Ahora, desarrollando cada $\begin{pmatrix}
+                k\\
+                j
+                \end{pmatrix}$ tenemos: 
+        \begin{equation}
+            y_{k}=b_{0}+b_{1}x+b_{2}x^{2}+...+b_{j}x^{j}
+        \end{equation}
+    El cual, es el polinomio de Newton con espaciamientos constantes
+    \end{teo}
+\section{Reglas}
+    \begin{teo}
+    Regla conmutativa
+        \begin{equation}
+            \bigtriangleup [cf(x)]=c\bigtriangleup f(x),\hspace{0.5cm}para\hspace{0.2cm}c=cte
+        \end{equation}
+    Regla de exponentes
+        \begin{equation}
+            \bigtriangleup^{m}[\bigtriangleup^{n}f(x)]=\bigtriangleup^{m+n}f(x)
+        \end{equation}
+    \end{teo}
+\section{Teoremas para delta}
+    \begin{teo}
+        Teorema 1:
+        \begin{equation}
+            \bigtriangleup c=0,\hspace{0.5cm}para\hspace{0.2cm}c=cte
+        \end{equation}
+        Teorema 2:
+            \begin{equation}
+                \bigtriangleup x^{n}=p(X)
+            \end{equation}
+        donde p(x) es un polinomio de grado n-1 y termino principal $nx^{n-1}$\newline \newline
+        Teorema 3:
+        \begin{equation}
+            \bigtriangleup^{n}x^{n}=n!
+        \end{equation}
+        Teorema 4:
+            \begin{equation}
+                \bigtriangleup^{n}cx^{n}=cn!
+            \end{equation}
+        Teorema 5:
+            \begin{equation}
+                \bigtriangleup^{n+1}x^{n}=0
+            \end{equation}
+        Teorema 6: \newline
+        Si:
+            \begin{equation}
+                p(x)=a_{0}x^{n}+a_{1}x^{n-1}+...+a_{i}x^{n-i}+...+a_{n}
+            \end{equation}
+            \begin{equation}
+                \Longrightarrow,\bigtriangleup^{n}p(x)=a_{0}n!
+            \end{equation}
+    \end{teo}
+\section{Interpolación con espacios variables}
+    \begin{teo}
+        Si $h_{0},h_{1},...,h_{n}$, no estan necesariamente espaciados, entonces el polinomio de grado n que pasa por los n+1 puntos es:
+            \begin{equation}
+                y=a_{0}(x-x_{1})(x-x{2})(x-x_{3})...(x-x_{n})+a_{1}(x-x_{0})(x-x{2})(x-x_{3})...(x-x_{n})+...+a_{n}(x-x_{0})(x-x{1})(x-x_{2})...(x-x_{n-1})
+            \end{equation}
+        Observamos que:
+            \begin{equation}
+                y(x_{0})=a_{0}(x_{0}-x_{1})(x_{0}-x{2})(x_{0}-x_{3})...(x_{0}-x_{n})
+            \end{equation}
+            \begin{equation}
+                \Longrightarrow a_{0}=\frac{ y(x_{0})}{(x_{0}-x_{1})(x_{0}-x{2})(x_{0}-x_{3})...(x_{0}-x_{n})}
+            \end{equation}
+        Repetimos para cada coeficiente $a_{i}$, y obtenemos:
+            \begin{equation}
+                y=\sum_{i=0}^{n}[\prod_{j=0}^{n}\frac{(x-x_{j})}{(x_{1}-x_{j})}], \hspace{0.2cm} j\neq 1
+            \end{equation}
+    \end{teo}
+\section{Interpolación inversa}
+    \begin{teo}
+        Para hacer una interpolación inversa, osea, buscar un valor x en función de y, solo invertimos la tabla y hacemos el mismo proceso que con una interpolación 
+    \end{teo}
+\section{Método de Neville}
+    \begin{teo}
+        Definición: \newline
+        Sea f una función definida en $x_{0},x_{1},...,x_{n}$ y supongamos que $m_{1},m_{2},...,m_{k}$ son k enteros distintos con $0\leq m_{i}\leq n$ para cada i. El polinomio de Lagrange que concuerda con f en los k puntos $Xm_{1},Xm_{2},...,Xm_{k}$ se denota por $Pm_{1},m_{2},...,m_{k}$(x) \newline
+        Teorema: \newline
+        Si f esta definida en $x_{0},,x_{1},...,x_{k}$ y $x_{j}$ y $x_{i}$ son dos números distintos de este conjunto, entonces: \newline
+        \begin{equation}
+            P(x)=\frac{(x-x_{j})P_{0,1,...,j-1,j,...,k(x)}-(x-x_{i})P_{0,1,...,i-1,i,...,k(x)}}{x_{i}-x_{j}}
+        \end{equation}
+        Describe el polinomio de lagrange de grado k que interpola f en los k+1 puntos $x_{0},x_{1},...,x_{k}$ \newline
+        Este teorema da origen a un método recursivo expresado en la siguiente tabla \newline
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|c|}
+                $x_{0}$ & $P_{0}=Q_{0,0}$ \\
+                $x_{1}$ & $P_{1}=Q_{1,0}$ & $P_{0,1}=Q_{1,1}$ \\
+                $x_{2}$ & $P_{2}=Q_{2,0}$ & $P_{1,2}=Q_{2,1}$ & $P_{0,1,2}=Q_{2,2}$\\
+                $x_{3}$ & $P_{3}=Q_{3,0}$ & $P_{2,3}=Q_{3,1}$ & $P_{1,2,3}=Q_{3,2}$ & $P_{0,1,2,3}=Q_{3,3}$\\
+                $x_{4}$ & $P_{4}=Q_{4,0}$ & $P_{3,4}=Q_{4,1}$ & $P_{2,3,4}=Q_{4,2}$ & $P_{1,2,3,4}=Q_{4,3}$ & $P_{0,1,2,3,4}=Q_{4,4}$\\
+            \end{tabular}
+        \end{center}
+    \end{teo}
+\section{Diferencias divididas}
+    \begin{teo}
+        Diferencia dividida cero de f respecto a $x_{i}$:
+            \begin{equation}
+                f[x_{i}]=f(x_{i})
+            \end{equation}
+        Primera diferencia dividida de f respecto a $x_{i}$ y $x_{i+1}$
+            \begin{equation}
+                f[x_{i},x_{i+1}]=\frac{f(x_{i+1})-f(x_{i})}{x_{i+1}-x_{i}}
+            \end{equation}
+        k-esima diferencia dividida relativa a $x_{i},x_{i+1},...,x_{i+k}$
+            \begin{equation}
+                f[x_{i},x_{i+1},...,x_{i+k}]=\frac{f[x_{i+1},x_{i+2},...,x_{i+k}]-f[x_{i},x_{i+1},...,x_{i+k-1}]}{x_{i+k}-x_{i}}
+            \end{equation}
+        Con la tabla de las k-esimas diferencias en la pagina 106 del libro Analisis Numerico (10a. ed.) - Richard L Burden, Douglas J. Faires, Annette M, Burden. 
+            \begin{equation}
+                P_{n}(x)=f[x_{0}]+\sum_{k=1}^{n}f[x_{0},...,x_{k}](x-x_{0})...(x-x_{k-1})
+            \end{equation}
+        Esta es la formula de diferencias divididas interpolantes de Newton
+    \end{teo}
+    Si $h=x_{i+1}-x_{i}$ para cada i=o,1,2,...,n-1 y x=$x_{0}+sh$, entonces $x-x_{i}=(s-i)h$ y la formula de diferencias interpolantes de Newton se escribe como: 
+        \begin{equation}
+            P_{n}(x)=P_{n}(x_{0}+sh)=f[x_{0}]+shf[x_{0},x_{1}]+s(s-1)h^{2}f[x_{0},x_{1},x_{2}]+...+s(s-1)*...*(s-n+1)h^{n}f[x_{0},...,x_{n}]
+        \end{equation}
+    Y al usar $\begin{pmatrix}
+        s\\
+        k
+    \end{pmatrix}$=$\frac{s(s-1)*...*(s-k+1)}{k!}$ tenemos:
+        \begin{equation}
+            P_{n}(x)=P_{n}(x_{0}+sh)=\sum_{k=0}^{n}\begin{pmatrix}
+        s\\
+        k
+    \end{pmatrix}k!h^{k}f[x_{0},...,x_{k}]
+        \end{equation}
+    Esta es la formula de las diferencias divididas de Newton
+\section{Polinomio de Hermite}
+    \begin{teo}
+        Supongamos dados $x_{0},x_{1},...,x_{n}$ junto con sus valores de f y f' \newline
+        Definimos una nueva sucesión $z_{0},z_{1},...,z_{n+1}$ tal que:
+            \begin{equation}
+                z_{2i}=z_{2i+1}=x_{i}
+            \end{equation}
+        y las primeras diferencias divididas como en la tabla 
+            \begin{center}
+                \begin{tabular}{c|c|c|c}
+                    $\hspace{0.25cm}z_{k}$ & $f[z_{k}]$ & P.D.D & S.D.D \\
+                    $z_{0}=x_{0}$ & $f[z_{0}]=f(x_{0})$ & $f[z_{0},z_{1}]=f'[x_{0}]$ & $f[z_{0},z_{1},z_{2}]=\frac{f[z_{1},z_{2}]-f[z_{0},z_{1}]}{z_{2}-z_{0}}$\\
+                    $z_{1}=x_{0}$ & $f[z_{1}]=f(x_{0})$ & $f[z_{1},z_{2}]=\frac{f[z_{2}]-f[z_{1}]}{z_{2}-z_{1}}$ & $f[z_{1},z_{2},z_{3}]=\frac{f[z_{2},z_{3}]-f[z_{1},z_{2}]}{z_{3}-z_{1}}$\\ 
+                    $z_{2}=x_{1}$ & $f[z_{2}]=f(x_{1})$ & $f[z_{2},z_{3}]=f'(x_{1})$\\
+                    $z_{3}=x_{1}$ & $f[z_{3}]=f(x_{1})$ & $f[z_{3},z_{4}]=\frac{f[z_{4}]-f[z_{3}]}{z_{4}-z_{3}}$\\
+                \end{tabular}
+            Siguiendo desarrollando las diferencias obtenemos: 
+                \begin{equation}
+                    H_{2n+1}(x)=f[z_{0}]+\sum_{k=1}^{2n+1}f[z_{0},...,z_{k}](x-z_{0})*...*(x-z_{k-1})
+                \end{equation}
+            \end{center}
+    \end{teo}
 \bibliography{sample}
 
 \end{document}
